@@ -1,0 +1,27 @@
+{
+ "name": "mini-trello-backend",
+ "version": "1.0.0",
+ "main": "server.js",
+ "scripts": {
+  "start": "ts-node ./server.ts",
+  "build": "tsc",
+  "serve": "node dist/index.js"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "description": "",
+ "devDependencies": {
+  "@types/express": "^5.0.1",
+  "@types/jsonwebtoken": "^9.0.9",
+  "@types/node": "^22.15.14",
+  "express": "^5.1.0",
+  "ts-node": "^10.9.2",
+  "typescript": "^5.8.3"
+ },
+ "dependencies": {
+  "dotenv": "^16.5.0",
+  "jsonwebtoken": "^9.0.2",
+  "mongoose": "^8.14.1"
+ }
+}
