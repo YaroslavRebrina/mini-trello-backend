@@ -24,15 +24,18 @@ router.post(
 
    if (!label || !email) {
     res.status(400).json({ message: 'Label and email are required' });
+    return;
    }
 
    const newTodo = new Todo({ label, email });
    await newTodo.save();
 
    res.status(201).json(newTodo);
+   return;
   } catch (error) {
    console.error('Error creating todo:', error);
    res.status(422).json({ message: 'Error creating todo' });
+   return;
   }
  }
 );
@@ -49,6 +52,7 @@ router.get(
 
    if (!email) {
     res.status(400).json({ message: 'Email is required' });
+    return;
    }
 
    const todos = await Todo.find({ email }).sort({ createdAt: 'desc' });
@@ -58,6 +62,7 @@ router.get(
    res.status(500).json({
     message: 'Error fetching todos',
    });
+   return;
   }
  }
 );
@@ -75,6 +80,7 @@ router.put(
 
    if (!label || !email) {
     res.status(400).json({ message: 'Label and email are required' });
+    return;
    }
 
    const updatedTodo = await Todo.findOneAndUpdate(
@@ -85,6 +91,7 @@ router.put(
 
    if (!updatedTodo) {
     res.status(404).json({ message: 'Task not found' });
+    return;
    }
 
    res.json(updatedTodo);
@@ -93,6 +100,7 @@ router.put(
    res.status(500).json({
     message: 'Error updating todo',
    });
+   return;
   }
  }
 );
@@ -107,12 +115,14 @@ router.delete(
 
    if (!email) {
     res.status(400).json({ message: 'Email is required' });
+    return;
    }
 
    const deletedTodo = await Todo.findOneAndDelete({ _id: id, email });
 
    if (!deletedTodo) {
     res.status(404).json({ message: 'Task not found' });
+    return;
    }
 
    res.status(204).send();
@@ -121,6 +131,7 @@ router.delete(
    res.status(500).json({
     message: error,
    });
+   return;
   }
  }
 );

@@ -12,11 +12,13 @@ router.post('/login', async (req, res): Promise<void> => {
 
   if (!email) {
    res.status(400).json({ message: 'Email is required' });
+   return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
    res.status(400).json({ message: 'Please provide a valid email' });
+   return;
   }
 
   let user = await User.findOne({ email });
@@ -41,9 +43,11 @@ router.post('/login', async (req, res): Promise<void> => {
     email: user.email,
    },
   });
+  return;
  } catch (error) {
   console.error('Login error:', error);
   res.status(500).json({ message: 'Server error' });
+  return;
  }
 });
 
