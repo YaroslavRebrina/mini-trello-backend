@@ -21,7 +21,7 @@ router.post('/login', async (req, res): Promise<void> => {
    return;
   }
 
-  let user = await User.findOne({ email });
+  let user = await User.findOne({ email: { $eq: email } });
 
   if (!user) {
    user = await User.create({ email });
