@@ -1,9 +1,10 @@
-// routes/index.js or routes/index.mjs (depending on your setup)
 import { Router } from 'express';
 import todoRoutes from './todos';
+import userRoutes from './users';
 
 const router = Router();
 
 router.use('/todo', todoRoutes);
+router.use('/user', userRoutes);
 
 export default router;

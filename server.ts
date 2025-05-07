@@ -2,6 +2,7 @@ import config from './src/config/environment';
 import mongoose from 'mongoose';
 
 import './src/models/Todo';
+import './src/models/User';
 import app from './app';
 
 mongoose
