@@ -7,20 +7,9 @@ const app: Application = express();
 
 app.use(
  cors({
-  origin: '*',
+  origin: process.env.CORS_ORIGIN || '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: [
-   'X-CSRF-Token',
-   'X-Requested-With',
-   'Accept',
-   'Accept-Version',
-   'Content-Length',
-   'Content-MD5',
-   'Content-Type',
-   'Date',
-   'X-Api-Version',
-   'Authorization',
-  ],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
  })
 );
