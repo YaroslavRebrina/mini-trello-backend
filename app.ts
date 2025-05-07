@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './src/routes';
-import { errorHandler } from './middlewares/error.middleware';
+import { errorHandler } from './src/middlwares/error.middleware';
 
 const app: Application = express();
 
