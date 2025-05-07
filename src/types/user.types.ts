@@ -1,4 +1,3 @@
-// src/types/user.types.ts
 import { Document } from 'mongoose';
 
 export interface IUser {
@@ -28,7 +27,6 @@ export interface JwtPayload {
  id: string;
 }
 
-// Add to Express Request
 declare global {
  namespace Express {
   interface Request {
